@@ -8,7 +8,7 @@ import {ExchangeFormInterface} from '../../models/exchange-form.interface';
 })
 export class ExchangeFormComponent implements OnInit {
   @Output()
-  public add = new EventEmitter<FormGroup>();
+  public convert = new EventEmitter<FormGroup>();
   public form = this.fb.group({
     to_convert: ['', Validators.required],
     converted: [{value: '', disabled: true}],
