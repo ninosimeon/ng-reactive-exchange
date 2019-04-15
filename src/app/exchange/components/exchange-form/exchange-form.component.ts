@@ -1,6 +1,5 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {ExchangeFormInterface} from '../../models/exchange-form.interface';
 
 @Component({
   selector: 'app-exchange-form',
@@ -8,7 +7,7 @@ import {ExchangeFormInterface} from '../../models/exchange-form.interface';
 })
 export class ExchangeFormComponent implements OnInit {
   @Output()
-  public convert = new EventEmitter<FormGroup>();
+  public exchange = new EventEmitter<FormGroup>();
   public form = this.fb.group({
     to_convert: ['', Validators.required],
     converted: [{value: '', disabled: true}],
@@ -22,8 +21,11 @@ export class ExchangeFormComponent implements OnInit {
   ngOnInit() {
   }
 
-  public onSubmit(form: ExchangeFormInterface): void {
-    console.log(form);
+  public onSubmit(): void {
+    if (this.form.invalid) {
+      return;
+    }
+    this.exchange.emit(this.form.value);
   }
 
 }
