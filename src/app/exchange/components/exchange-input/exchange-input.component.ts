@@ -8,7 +8,9 @@ import {FormGroup} from '@angular/forms';
 export class ExchangeInputComponent implements OnInit {
   @Input()
   public parent: FormGroup;
-  constructor() { }
+
+  constructor() {
+  }
 
   ngOnInit() {
   }

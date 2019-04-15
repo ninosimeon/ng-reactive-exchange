@@ -1,3 +1,12 @@
-<div class="form-group" [formGroup]="parent">
-  <input class="form-control" type="text">
+<div [formGroup]="parent" class="row">
+  <div class="col-lg-4 offset-lg-2">
+    <div class="form-group">
+      <input class="form-control" formControlName="to_convert" type="text" placeholder="EU">
+    </div>
+  </div>
+  <div class="col-lg-4">
+    <div class="form-group">
+      <input class="form-control" formControlName="converted" type="text" placeholder="USD">
+    </div>
+  </div>
 </div>
