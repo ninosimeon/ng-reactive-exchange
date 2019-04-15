@@ -1,17 +1,19 @@
-<section class="row bg-secondary p-5 mb-5">
+<section class="row bg-secondary pt-5 pb-5 mb-5">
   <div class="container">
     <div class="row">
       <div class="col-lg-10 offset-lg-1">
-        <form action="">
+        <form action="" [formGroup]="form">
           <div class="row">
             <div class="col-lg-4 offset-lg-2">
-              <app-exchange-input></app-exchange-input>
+              <app-exchange-input [parent]="form"></app-exchange-input>
             </div>
             <div class="col-lg-4">
               <app-exchange-input></app-exchange-input>
             </div>
           </div>
-          <app-exchange-button></app-exchange-button>
+          <app-exchange-button>
+            CALCULATE
+          </app-exchange-button>
         </form>
       </div>
     </div>

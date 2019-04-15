@@ -1,5 +1,7 @@
 <div class="row">
-  <div class="col-lg-4 offset-lg-4">
-    <button class="btn btn-success w-100" type="button">CALCULATE</button>
+  <div class="col-lg-4 offset-lg-4" [formGroup]="parent">
+    <button class="btn btn-success w-100" type="submit">
+      <ng-content></ng-content>
+    </button>
   </div>
 </div>
