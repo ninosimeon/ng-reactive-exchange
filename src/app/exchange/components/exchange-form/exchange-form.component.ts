@@ -21,7 +21,6 @@ export class ExchangeFormComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log('aaa', this.exchanged);
   }
 
   public onSubmit(): void {

@@ -9,7 +9,7 @@ export class ExchangeCreatorComponent implements OnInit {
   public exchanged: number;
 
   constructor(private exchangeService: ExchangeService) {
-    this.exchanged = null;
+    this.exchanged = 0;
   }
 
   ngOnInit() {

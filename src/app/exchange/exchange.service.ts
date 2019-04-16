@@ -12,7 +12,6 @@ export class ExchangeService {
   }
 
   public exchange(toCalculate: number, currency: string): number {
-    console.log(this.rates[currency]);
     return toCalculate * this.rates[currency];
   }
 
