@@ -26,7 +26,7 @@ export class ExchangeService {
   }
 
   public getRates(): void {
-    const options = {params: {access_key: '33b23d6e01efe285daf21f65e1124757'}};
+    const options = {params: {access_key: configuration.api_access_key}};
     this.http.get(configuration.api_url, options).subscribe((res: any) => {
         this.rates = res.rates;
       }
