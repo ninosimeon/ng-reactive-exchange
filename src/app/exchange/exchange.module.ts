@@ -9,6 +9,8 @@ import {ExchangeInputComponent} from './components/exchange-input/exchange-input
 import {ExchangeFooterComponent} from './components/exchange-footer/exchange-footer.component';
 import {ExchangeNavigationComponent} from './components/exchange-navigation/exchange-navigation.component';
 import {ReactiveFormsModule} from '@angular/forms';
+import {ExchangeService} from './exchange.service';
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -24,6 +26,10 @@ import {ReactiveFormsModule} from '@angular/forms';
     CommonModule,
     ExchangeRoutingModule,
     ReactiveFormsModule,
+    HttpClientModule,
+  ],
+  providers: [
+    ExchangeService,
   ]
 })
 export class ExchangeModule {

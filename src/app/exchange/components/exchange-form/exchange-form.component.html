@@ -5,7 +5,7 @@
         <form (ngSubmit)="onSubmit()" [formGroup]="form" action="">
           <app-exchange-input [parent]="form"></app-exchange-input>
           <app-exchange-button [parent]="form">
-            CALCULATE
+            CALCULATE <{{exchanged}}>
           </app-exchange-button>
         </form>
       </div>

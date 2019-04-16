@@ -6,15 +6,17 @@ import {ExchangeService} from '../../exchange.service';
   templateUrl: './exchange-creator.component.html'
 })
 export class ExchangeCreatorComponent implements OnInit {
+  public exchanged: number;
 
   constructor(private exchangeService: ExchangeService) {
+    this.exchanged = null;
   }
 
   ngOnInit() {
   }
 
   public exchange(event: any) {
-    console.log('hi', event);
+    this.exchanged = this.exchangeService.exchange(event.to_convert, 'USD');
   }
 
 }
