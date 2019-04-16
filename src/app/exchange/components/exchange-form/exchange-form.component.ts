@@ -11,13 +11,14 @@ export class ExchangeFormComponent implements OnInit {
 
   @Output()
   public exchange = new EventEmitter<FormGroup>();
-  public form = this.fb.group({
-    to_convert: ['', [Validators.required, Validators.pattern('\\d+(.\\d{1,4})?')]],
-  });
+  public form: FormGroup;
 
   constructor(
     private fb: FormBuilder
   ) {
+    this.form = this.fb.group({
+      to_convert: ['', [Validators.required, Validators.pattern('\\d+(.\\d{1,4})?')]],
+    });
   }
 
   ngOnInit() {
