@@ -9,6 +9,9 @@ export class ExchangeInputComponent implements OnInit {
   @Input()
   public parent: FormGroup;
 
+  @Input()
+  public exchanged: number;
+
   constructor() {
   }
 
