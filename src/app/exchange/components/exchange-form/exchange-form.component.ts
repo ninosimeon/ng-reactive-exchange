@@ -12,7 +12,7 @@ export class ExchangeFormComponent implements OnInit {
   @Output()
   public exchange = new EventEmitter<FormGroup>();
   public form = this.fb.group({
-    to_convert: ['', [Validators.required, Validators.pattern('\\d+.?\\d{0,4}')]],
+    to_convert: ['', [Validators.required, Validators.pattern('\\d+(.\\d{1,4})?')]],
   });
 
   constructor(
