@@ -8,15 +8,16 @@ export class ExchangeService {
 
   constructor(public http: HttpClient) {
     this.getRates();
-    this.refreshRates();
+    this.refreshRates(10);
   }
 
   public exchange(toCalculate: number, currency: string): number {
     return toCalculate * this.rates[currency];
   }
 
-  public refreshRates(): void {
-    interval(600000).subscribe((x) => {
+  public refreshRates(minutes: number): void {
+    const miliseconds = minutes * 60000;
+    interval(miliseconds).subscribe(() => {
         this.getRates();
       }
     );
