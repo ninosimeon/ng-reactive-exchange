@@ -1,6 +1,13 @@
 <section class="row bg-secondary pt-5 pb-5 mb-5">
   <div class="container">
     <div class="row">
+      <div class="col-12">
+        <div class="text-danger text-center mb-3" *ngIf="error">
+          There is an error. Sorry, we can't process your request.
+        </div>
+      </div>
+    </div>
+    <div class="row">
       <div class="col-lg-10 offset-lg-1">
         <form (ngSubmit)="onSubmit()" [formGroup]="form" action="">
           <app-exchange-input [parent]="form" [exchanged]="exchanged"></app-exchange-input>

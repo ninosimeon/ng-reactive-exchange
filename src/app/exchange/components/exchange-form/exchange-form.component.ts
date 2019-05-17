@@ -9,6 +9,8 @@ import { regexValidators } from 'src/util/regex-validators';
 export class ExchangeFormComponent implements OnInit {
   @Input()
   public exchanged: number;
+  @Input()
+  public error: string;
 
   @Output()
   public exchanger = new EventEmitter<FormGroup>();

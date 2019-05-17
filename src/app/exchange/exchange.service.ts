@@ -1,36 +1,31 @@
-import {Injectable} from '@angular/core';
-import {HttpClient} from '@angular/common/http';
-import {interval} from 'rxjs';
-import {configuration} from '../../util/configuration';
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Observable, throwError } from 'rxjs';
+import { map, catchError } from 'rxjs/operators';
+import { configuration } from '../../util/configuration';
+import Rates from './models/rates.interface';
 
 @Injectable()
 export class ExchangeService {
-  public rates: any;
 
   constructor(public http: HttpClient) {
-    this.getRates();
-    this.refreshRates(configuration.rates_periodicity_minutes);
   }
 
-  public exchange(toCalculate: number, currency: string): number {
-    return toCalculate * this.rates[currency];
+  public exchange(toCalculate: number, rates: object, currency: string): number {
+    return toCalculate * rates[currency];
   }
 
-  public refreshRates(minutes: number): void {
-    // It just converts minutes to milliseconds.
-    const miliseconds = minutes * 60000;
-    interval(miliseconds).subscribe(() => {
-        this.getRates();
-      }
+  public getRates(): Observable<Rates> {
+    const options = { params: { access_key: configuration.api_access_key } };
+    return this.http.get(configuration.api_url, options).pipe(
+      map((response: any) => response),
+      catchError(this.handleError)
     );
   }
 
-  public getRates(): void {
-    const options = {params: {access_key: configuration.api_access_key}};
-    this.http.get(configuration.api_url, options).subscribe((res: any) => {
-        this.rates = res.rates;
-      }
-    );
+  private handleError(error: Response | any) {
+    console.error('ExchangeService::handleError', error);
+    return throwError(error);
   }
 
 }
