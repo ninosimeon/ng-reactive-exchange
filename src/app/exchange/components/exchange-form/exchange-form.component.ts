@@ -11,6 +11,8 @@ export class ExchangeFormComponent implements OnInit {
   public exchanged: number;
   @Input()
   public error: string;
+  @Input()
+  public toCurrency: string;
 
   @Output()
   public exchanger = new EventEmitter<FormGroup>();

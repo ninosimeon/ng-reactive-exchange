@@ -8,6 +8,8 @@ import {FormGroup} from '@angular/forms';
 export class ExchangeInputComponent implements OnInit {
   @Input()
   public parent: FormGroup;
+  @Input()
+  public toCurrency: string;
 
   @Input()
   public exchanged: number;

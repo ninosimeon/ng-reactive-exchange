@@ -11,21 +11,21 @@ export class ExchangeService {
   constructor(public http: HttpClient) {
   }
 
-  public exchange(toCalculate: number, rates: object, currency: string): number {
+  public static exchange(toCalculate: number, rates: object, currency: string): number {
     return toCalculate * rates[currency];
+  }
+
+  private static handleError(error: Response | any) {
+    console.error('ExchangeService::handleError', error);
+    return throwError(error);
   }
 
   public getRates(): Observable<Rates> {
     const options = { params: { access_key: configuration.api_access_key } };
     return this.http.get(configuration.api_url, options).pipe(
       map((response: any) => response),
-      catchError(this.handleError)
+      catchError(ExchangeService.handleError)
     );
-  }
-
-  private handleError(error: Response | any) {
-    console.error('ExchangeService::handleError', error);
-    return throwError(error);
   }
 
 }

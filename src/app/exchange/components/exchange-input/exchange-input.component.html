@@ -1,12 +1,12 @@
 <div [formGroup]="parent" class="row">
   <div class="col-lg-4 offset-lg-2">
     <div class="form-group">
-      <input class="form-control" formControlName="to_convert" type="text" placeholder="EU">
+      <input class="form-control" formControlName="to_convert" placeholder="EU" type="text">
     </div>
   </div>
   <div class="col-lg-4">
     <div class="form-group">
-      <input class="form-control" [value]="exchanged | currency:'USD':'symbol-narrow':'1.4-4'" disabled type="text" placeholder="USD">
+      <input [value]="exchanged | currency:toCurrency:'symbol-narrow':'1.4-4'" class="form-control" disabled placeholder="{{toCurrency}}" type="text">
     </div>
   </div>
 </div>

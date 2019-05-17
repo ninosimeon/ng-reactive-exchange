@@ -10,7 +10,7 @@
     <div class="row">
       <div class="col-lg-10 offset-lg-1">
         <form (ngSubmit)="onSubmit()" [formGroup]="form" action="">
-          <app-exchange-input [parent]="form" [exchanged]="exchanged"></app-exchange-input>
+          <app-exchange-input [parent]="form" [exchanged]="exchanged" [toCurrency]="toCurrency"></app-exchange-input>
           <app-exchange-button [parent]="form">
             CALCULATE
           </app-exchange-button>
