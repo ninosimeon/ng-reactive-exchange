@@ -31,9 +31,6 @@ export class ExchangeFormComponent implements OnInit {
   }
 
   public onSubmit(): void {
-    if (this.form.invalid) {
-      return;
-    }
     this.exchanger.emit(this.form.value);
   }
 
