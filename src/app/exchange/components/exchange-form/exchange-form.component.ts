@@ -1,5 +1,6 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { regexValidators } from 'src/util/regex-validators';
 
 @Component({
   selector: 'app-exchange-form',
@@ -11,14 +12,14 @@ export class ExchangeFormComponent implements OnInit {
 
   @Output()
   public exchanger = new EventEmitter<FormGroup>();
-  
+
   public form: FormGroup;
 
   constructor(
     private fb: FormBuilder
   ) {
     this.form = this.fb.group({
-      to_convert: ['', [Validators.required, Validators.pattern('\\d+(.\\d{1,4})?')]],
+      to_convert: ['', [Validators.required, Validators.pattern(regexValidators.number_with_4_decimals)]],
     });
   }
 
