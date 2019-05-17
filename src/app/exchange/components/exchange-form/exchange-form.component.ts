@@ -10,7 +10,8 @@ export class ExchangeFormComponent implements OnInit {
   public exchanged: number;
 
   @Output()
-  public exchange = new EventEmitter<FormGroup>();
+  public exchanger = new EventEmitter<FormGroup>();
+  
   public form: FormGroup;
 
   constructor(
@@ -28,7 +29,7 @@ export class ExchangeFormComponent implements OnInit {
     if (this.form.invalid) {
       return;
     }
-    this.exchange.emit(this.form.value);
+    this.exchanger.emit(this.form.value);
   }
 
 }

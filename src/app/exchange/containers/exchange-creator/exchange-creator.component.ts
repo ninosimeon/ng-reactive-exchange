@@ -15,7 +15,7 @@ export class ExchangeCreatorComponent implements OnInit {
   ngOnInit() {
   }
 
-  public exchange(event: any): void {
+  public exchanger(event: any): void {
     this.exchanged = this.exchangeService.exchange(event.to_convert, 'USD');
   }
 
