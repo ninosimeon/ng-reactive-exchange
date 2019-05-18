@@ -8,7 +8,7 @@ describe('#ExchangeForm', () => {
     component = new ExchangeFormComponent(new FormBuilder());
   });
 
-  it('Sending value from dumb component to smart component.', () => {
+  it('Sending values from dumb component to smart component.', () => {
     updateInput('to_convert', 5);
 
     component.exchanger.subscribe(values => expect(values).toEqual({to_convert: 5}));
