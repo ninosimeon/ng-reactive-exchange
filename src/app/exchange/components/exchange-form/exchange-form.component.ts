@@ -15,7 +15,7 @@ export class ExchangeFormComponent implements OnInit {
   public toCurrency: string;
 
   @Output()
-  public exchanger = new EventEmitter<FormGroup>();
+  public exchange = new EventEmitter<FormGroup>();
 
   public form: FormGroup;
 
@@ -31,7 +31,7 @@ export class ExchangeFormComponent implements OnInit {
   }
 
   public onSubmit(): void {
-    this.exchanger.emit(this.form.value);
+    this.exchange.emit(this.form.value);
   }
 
 }

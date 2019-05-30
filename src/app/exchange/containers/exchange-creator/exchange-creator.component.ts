@@ -38,8 +38,8 @@ export class ExchangeCreatorComponent implements OnInit, OnDestroy {
       );
   }
 
-  public exchanger(event: any): void {
-    this.exchanged = ExchangeService.exchange(event.to_convert, this.rates, this.toCurrency);
+  public exchanger(data: any): void {
+    this.exchanged = ExchangeService.exchange(data.to_convert, this.rates, this.toCurrency);
   }
 
   ngOnDestroy() {
